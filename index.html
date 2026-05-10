@@ -1,1 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studio Bella Nails | Nail Design</title>
+    <meta name="description" content="Landing page de nail design com catálogo de serviços, promoções e área administrativa para gestão completa." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <a href="#inicio" class="brand">Studio Bella Nails</a>
+        <nav>
+          <a href="#servicos">Serviços</a>
+          <a href="#promocoes">Promoções</a>
+          <a href="#agendamento">Agendamento</a>
+          <a href="#admin">Painel</a>
+        </nav>
+      </div>
+    </header>
 
+    <main>
+      <section id="inicio" class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="kicker">Nail Design Premium</p>
+            <h1>Unhas impecáveis para realçar sua beleza em qualquer ocasião.</h1>
+            <p class="lead">Atendimento acolhedor, técnicas modernas e resultados personalizados para cada cliente.</p>
+            <div class="hero-actions">
+              <a href="#agendamento" class="btn btn-primary">Agendar agora</a>
+              <a href="#servicos" class="btn btn-outline">Ver serviços</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <h3>Horários de atendimento</h3>
+            <ul>
+              <li>Segunda a Sexta: 09h às 19h</li>
+              <li>Sábado: 09h às 15h</li>
+              <li>Atendimento por ordem de agendamento</li>
+            </ul>
+            <p><strong>WhatsApp:</strong> (11) 98888-0000</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicos" class="section">
+        <div class="container">
+          <h2>Serviços oferecidos</h2>
+          <p class="section-text">Confira os serviços de nail design disponíveis e escolha o seu preferido.</p>
+          <div id="services-grid" class="cards-grid"></div>
+        </div>
+      </section>
+
+      <section id="promocoes" class="section soft">
+        <div class="container">
+          <h2>Promoções atuais</h2>
+          <div id="promotions-list" class="promo-grid"></div>
+        </div>
+      </section>
+
+      <section id="agendamento" class="section">
+        <div class="container">
+          <h2>Agendar atendimento</h2>
+          <form id="booking-form" class="form-card">
+            <div class="form-row">
+              <label for="clientName">Nome completo</label>
+              <input id="clientName" name="clientName" required />
+            </div>
+            <div class="form-row">
+              <label for="clientPhone">WhatsApp</label>
+              <input id="clientPhone" name="clientPhone" placeholder="(11) 99999-9999" required />
+            </div>
+            <div class="form-row">
+              <label for="serviceChoice">Serviço</label>
+              <select id="serviceChoice" name="serviceChoice" required></select>
+            </div>
+            <div class="form-row">
+              <label for="bookingDate">Data e horário</label>
+              <input id="bookingDate" name="bookingDate" type="datetime-local" required />
+            </div>
+            <button class="btn btn-primary" type="submit">Solicitar agendamento</button>
+            <p id="booking-feedback" class="feedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="admin" class="section admin">
+        <div class="container">
+          <h2>Painel da empreendedora</h2>
+          <p class="section-text">Gerencie promoções, serviços e clientes de forma simples.</p>
+
+          <div class="admin-grid">
+            <article class="panel">
+              <h3>Novo serviço</h3>
+              <form id="service-form">
+                <input type="hidden" id="serviceId" />
+                <input id="serviceName" placeholder="Nome do serviço" required />
+                <input id="servicePrice" type="number" step="0.01" placeholder="Preço" required />
+                <input id="serviceDuration" placeholder="Duração (ex: 1h30)" required />
+                <textarea id="serviceDescription" placeholder="Descrição"></textarea>
+                <button type="submit" class="btn btn-dark">Salvar serviço</button>
+              </form>
+              <ul id="service-admin-list" class="admin-list"></ul>
+            </article>
+
+            <article class="panel">
+              <h3>Nova promoção</h3>
+              <form id="promotion-form">
+                <input type="hidden" id="promotionId" />
+                <input id="promotionTitle" placeholder="Título da promoção" required />
+                <textarea id="promotionDescription" placeholder="Detalhes da promoção" required></textarea>
+                <input id="promotionExpiry" type="date" required />
+                <button type="submit" class="btn btn-dark">Salvar promoção</button>
+              </form>
+              <ul id="promotion-admin-list" class="admin-list"></ul>
+            </article>
+          </div>
+
+          <article class="panel full">
+            <h3>Cadastro de clientes</h3>
+            <form id="client-form" class="client-form-grid">
+              <input type="hidden" id="clientId" />
+              <input id="fullName" placeholder="Nome completo" required />
+              <input id="whatsapp" placeholder="Telefone WhatsApp" required />
+              <input id="photoUrl" placeholder="URL da foto da cliente" />
+              <select id="clientService" required></select>
+              <select id="paymentStatus" required>
+                <option value="Pago">Pago</option>
+                <option value="Parcelado">Parcelado</option>
+                <option value="Pendente">Pendente</option>
+              </select>
+              <input id="installments" type="number" min="1" placeholder="Qtd. parcelas (se houver)" />
+              <input id="lastVisit" type="date" />
+              <textarea id="notes" placeholder="Observações"></textarea>
+              <button type="submit" class="btn btn-dark">Salvar cliente</button>
+            </form>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Foto</th>
+                    <th>Nome</th>
+                    <th>WhatsApp</th>
+                    <th>Serviços</th>
+                    <th>Pagamento</th>
+                    <th>Última visita</th>
+                    <th>Obs.</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="clients-table-body"></tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© <span id="year"></span> Studio Bella Nails • Beleza com personalidade.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
