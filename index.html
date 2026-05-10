@@ -168,5 +168,210 @@
     </footer>
 
     <script src="script.js"></script>
+    <title>HTML Test Lab</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --muted: #94a3b8;
+        --text: #e2e8f0;
+        --accent: #22d3ee;
+        --ok: #22c55e;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: linear-gradient(135deg, #020617, #0b1120 45%, #0f172a);
+        color: var(--text);
+      }
+      header, main, footer {
+        width: min(1100px, 94vw);
+        margin-inline: auto;
+      }
+      header {
+        padding: 2rem 0 1rem;
+      }
+      h1 { margin-bottom: 0.4rem; }
+      .subtitle { color: var(--muted); margin-top: 0; }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+      section {
+        background: rgba(17, 24, 39, 0.86);
+        border: 1px solid #1f2937;
+        border-radius: 14px;
+        padding: 1rem;
+        backdrop-filter: blur(6px);
+      }
+      h2 { margin-top: 0; font-size: 1.05rem; }
+      code, pre {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      pre {
+        background: #020617;
+        border-radius: 10px;
+        padding: 0.75rem;
+        overflow: auto;
+      }
+      input, select, textarea, button {
+        width: 100%;
+        margin: 0.25rem 0 0.75rem;
+        padding: 0.6rem 0.7rem;
+        border-radius: 8px;
+        border: 1px solid #334155;
+        background: #0b1220;
+        color: var(--text);
+      }
+      button {
+        cursor: pointer;
+        background: linear-gradient(90deg, #0891b2, #0ea5e9);
+        border: none;
+        font-weight: 700;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: 1px solid #334155;
+        padding: 0.5rem;
+        text-align: left;
+      }
+      progress, meter { width: 100%; }
+      .status {
+        font-weight: 700;
+        color: var(--ok);
+      }
+      footer {
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 1rem 0 2rem;
+      }
+      .pill {
+        display: inline-block;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        background: #083344;
+        border: 1px solid #155e75;
+        color: #67e8f9;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🧪 HTML Test Lab</h1>
+      <p class="subtitle">Uma página completa para validar elementos HTML, acessibilidade básica, estilos, layout e interações.</p>
+      <p><span class="pill">Sem dependências externas</span></p>
+    </header>
+
+    <main class="grid">
+      <section>
+        <h2>1) Tipografia e Semântica</h2>
+        <article>
+          <h3>Heading H3</h3>
+          <p>
+            Este parágrafo contém <strong>texto forte</strong>, <em>ênfase</em>,
+            <mark>destaque</mark>, <abbr title="HyperText Markup Language">HTML</abbr>
+            e <a href="#" aria-label="Link de exemplo">link</a>.
+          </p>
+          <blockquote cite="https://developer.mozilla.org/">
+            "HTML é a base da web."
+          </blockquote>
+        </article>
+      </section>
+
+      <section>
+        <h2>2) Formulário Completo</h2>
+        <form id="demo-form">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" placeholder="Seu nome" required />
+
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" placeholder="voce@exemplo.com" required />
+
+          <label for="nivel">Nível</label>
+          <select id="nivel" name="nivel">
+            <option>Iniciante</option>
+            <option>Intermediário</option>
+            <option>Avançado</option>
+          </select>
+
+          <label for="msg">Mensagem</label>
+          <textarea id="msg" name="msg" rows="3" placeholder="Digite algo..."></textarea>
+
+          <button type="submit">Enviar teste</button>
+        </form>
+        <p id="form-status" class="status" aria-live="polite"></p>
+      </section>
+
+      <section>
+        <h2>3) Tabela</h2>
+        <table>
+          <caption style="text-align:left; margin-bottom:0.4rem; color:#cbd5e1;">Compatibilidade de componentes</caption>
+          <thead>
+            <tr><th>Componente</th><th>Status</th><th>Nota</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Formulário</td><td>OK</td><td>10</td></tr>
+            <tr><td>Layout Grid</td><td>OK</td><td>10</td></tr>
+            <tr><td>Scripts</td><td>OK</td><td>9</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>4) Mídia e Conteúdo Embutido</h2>
+        <figure>
+          <img
+            alt="Imagem de placeholder para teste"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='240'%3E%3Crect width='100%25' height='100%25' fill='%230b1220'/%3E%3Ctext x='50%25' y='50%25' fill='%2322d3ee' dominant-baseline='middle' text-anchor='middle' font-size='28'%3EImagem de teste SVG%3C/text%3E%3C/svg%3E"
+            style="max-width:100%; border-radius:10px; border:1px solid #334155;"
+          />
+          <figcaption style="color:var(--muted)">Imagem inline SVG para teste visual sem internet.</figcaption>
+        </figure>
+        <audio controls style="width:100%">
+          <source src="" type="audio/mpeg" />
+        </audio>
+      </section>
+
+      <section>
+        <h2>5) Indicadores</h2>
+        <label for="progresso">Progresso</label>
+        <progress id="progresso" max="100" value="72">72%</progress>
+        <label for="qualidade">Qualidade</label>
+        <meter id="qualidade" min="0" max="100" low="40" high="80" optimum="90" value="88">88</meter>
+      </section>
+
+      <section>
+        <h2>6) Código e Script</h2>
+        <pre><code>&lt;button&gt;Clique para gerar timestamp&lt;/button&gt;</code></pre>
+        <button id="btn-time" type="button">Gerar timestamp</button>
+        <p>Último timestamp: <output id="ts">nenhum</output></p>
+      </section>
+    </main>
+
+    <footer>
+      Página criada para testes funcionais de HTML/CSS/JS em <time datetime="2026-05-10">10/05/2026</time>.
+    </footer>
+
+    <script>
+      const form = document.getElementById('demo-form');
+      const status = document.getElementById('form-status');
+      const btnTime = document.getElementById('btn-time');
+      const out = document.getElementById('ts');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        status.textContent = `Form enviado: ${data.get('nome')} (${data.get('email')})`;
+      });
+
+      btnTime.addEventListener('click', () => {
+        out.textContent = new Date().toISOString();
+      });
+    </script>
   </body>
 </html>
